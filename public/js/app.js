@@ -1,0 +1,1 @@
+angular.module('emailDbApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'ContactCtrl', 'ContactService']);

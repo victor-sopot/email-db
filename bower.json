@@ -1,0 +1,25 @@
+{
+  "name": "email-db",
+  "description": "Simple email database for Team 13",
+  "main": "server.js",
+  "authors": [
+    "Jake Davies & Adam Sofokleous"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "animate.css": "^3.5.2",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
