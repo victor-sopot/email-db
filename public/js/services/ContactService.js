@@ -1,5 +1,5 @@
 // comm with server and mongo
-angular.module('ContactService', []).factory('Contact', ['$http', function($http) {
+angular.module('ContactService', []).factory('Contacts', ['$http', function($http) {
 
 	return {
 		//call to get all contacts
