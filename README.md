@@ -6,8 +6,4 @@ The project is built on top of a MEAN stack.
 
 Clone the project, run `npm install` and `bower install` then `node server.js` to get a local server started
 
-<<<<<<< HEAD
-Lots to do still! 
-=======
-Lots to do still! 
->>>>>>> origin/master
+Lots to do still!
