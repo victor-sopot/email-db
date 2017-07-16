@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple email database for Team 13",
   "main": "server.js",
-  "author": "Jake Davies & Adam Sofokleous",
+  "author": "Adam Sofokleous",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
