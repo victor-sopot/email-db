@@ -1,0 +1,61 @@
+<div class="row">	
+	<div class="col-md-8 col-md-offset-2">
+		<form name="newContactForm" ng-submit="storeContact(newContactForm.$valid)" novalidate class="form-horizontal">
+			<fieldset>
+			<!-- Text input-->
+			<div class="form-group" ng-class="{ 'has-error' : newContactForm.firstname.$invalid && !newContactForm.firstname.$pristine }">
+			  <label class="col-md-4 control-label" for="firstname">First Name</label>  
+			  <div class="col-md-8">
+				  <input ng-model="newContact.firstname" id="firstname" name="firstname" type="text" placeholder="" class="form-control input-md" required>
+				  <p ng-show="newContactForm.firstname.$invalid && !newContactForm.firstname.$pristine" class="help-block"></p>
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group" ng-class="{ 'has-error' : newContactForm.lastname.$invalid && !newContactForm.lastname.$pristine }">
+				<label class="col-md-4 control-label" for="lastname">Last Name</label>  
+				<div class="col-md-8">
+					<input ng-model="newContact.lastname" id="lastname" name="lastname" type="text" placeholder="" class="form-control input-md" required="">
+					<p ng-show="newContactForm.lastname.$invalid && !newContactForm.lastname.$pristine" class="help-block"></p>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group" ng-class="{ 'has-error' : newContactForm.email.$invalid && !newContactForm.email.$pristine }">
+				<label class="col-md-4 control-label" for="email">Email</label>  
+				<div class="col-md-8">
+					<input ng-model="newContact.email" id="email" name="email" type="email" placeholder="" class="form-control input-md">
+					<p ng-show="newContactForm.email.$invalid && !newContactForm.email.$pristine" class="help-block"></p>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group" ng-class="{ 'has-error' : newContactForm.tel.$invalid && !newContactForm.tel.$pristine }">
+				<label class="col-md-4 control-label" for="tel">Telephone</label>  
+				<div class="col-md-8">
+					<input ng-model="newContact.tel" id="tel" name="tel" type="tel" placeholder="" class="form-control input-md">
+					<p ng-show="newContactForm.tel.$invalid && !newContactForm.tel.$pristine" class="help-block"></p>
+				</div>
+			</div>
+
+			<!-- Textarea -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="notes">Noets &amp; Comments</label>
+				<div class="col-md-8">                     
+					<textarea ng-model="newContact.notes" class="form-control" id="notes" name="notes"></textarea>
+				</div>
+			</div>
+
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submit"></label>
+				<div class="col-md-8">
+					<button type="submit" id="submit" name="submit" class="btn btn-success" ng-disabled="newContactForm.$invalid">Store</button>
+					<button type="reset" class="btn btn-default">Clear</button>
+				</div>
+			</div>
+
+			</fieldset>
+		</form>
+	</div>
+</div>

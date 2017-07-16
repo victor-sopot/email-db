@@ -1,0 +1,30 @@
+.side-menu {
+	position: fixed;
+	top: 200px;
+	width: 200px;
+	z-index: 100;
+}
+
+.side-menu ul {
+	list-style: none;
+}
+
+.side-menu ul li {
+	margin-bottom: 20px;
+}
+
+.side-menu a:hover, .side-menu a:focus {
+	text-decoration: none;
+}
+
+.home {
+	position: relative;
+	top: 30vh;
+}
+
+.btn-enter {
+	padding: 12px 24px;
+	color: black;
+    background-color: #fff;
+    border-color: #ccc;
+}

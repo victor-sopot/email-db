@@ -8,6 +8,22 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'MainController'
 		})
 
+		.when('/search', {
+			templateUrl: 'views/search.html',
+			controller: 'SearchController'
+		})
+
+		.when('/browse', {
+			templateUrl: 'views/browse.html'
+		})
+
+		.when('/add', {
+			templateUrl: 'views/add.html',
+			controller: 'ContactController'
+		})
+
+
+
 		//contacts page making use of the ContactCtrl
 		.when('/contacts', {
 			templateUrl: 'views/contact.html',

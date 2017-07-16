@@ -1,43 +1,55 @@
 angular.module('ContactCtrl', []).controller('ContactController', function($scope, Contacts) {
-
-	$scope.tagline = 'Nothing beats a pocket rocket';
+	
+	toastr.options = {
+		"closeButton": false,
+		"debug": false,
+		"newestOnTop": false,
+		"progressBar": true,
+		"positionClass": "toast-top-right",
+		"preventDuplicates": false,
+		"onclick": null,
+		"showDuration": "300",
+		"hideDuration": "1000",
+		"timeOut": "5000",
+		"extendedTimeOut": "1000",
+		"showEasing": "swing",
+		"hideEasing": "linear",
+		"showMethod": "fadeIn",
+		"hideMethod": "fadeOut"
+	}
 
 	$scope.contacts = {};
-
+	$scope.newContact = {};
 	Contacts.get()
 	.success(function(data) {
 		$scope.contacts = data;
 	})
 	.error(function(error) {
 		console.log(error);
+		toastr["error"]('Contacts couldnt be loaded from DB.');
 	});
 
-	$scope.submitPortfolio = function() {
-
-		//save the contact pass in contact data from form
-		Contacts.create($scope.contactData)
-			.success(function(data) {
-				Contacts.get()
-					.success(function(getData) {
-						$scope.contacts = getData;
-					});
-			})
-			.error(function(data) {
-				console.log(data);
-			});
+	$scope.storeContact = function(isValid) {
+		if(isValid) {
+			Contacts.create($scope.newContact)
+				.success(function(data) {
+					Contacts.get()
+						.success(function(getData) {
+							toastr["success"](data);
+							$scope.contacts = getData;
+						});
+				})
+				.error(function(data) {
+					toastr["error"](data);
+				});
+		}
 	};
+})
 
-	$scope.deletePortfolio = function(id) {
-		$scope.loading = true;
 
-		Contacts.destroy(id)
-			.success(function(data) {
-				Contacts.get()
-					.success(function(getData) {
-						$scope.portfolios = getData;
-						$scope.loading = false;
-					});
-			});
+.directive('contactsTable', function(){
+	return {
+		templateUrl: 'views/partials/contacts-table.html',
+		replace: 'true'
 	};
-
-});
+})

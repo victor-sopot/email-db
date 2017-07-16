@@ -32,10 +32,12 @@ module.exports = function(app) {
 		});
 
 		contact.save(function(err, contact) {
-			if (err) return console.error(err);
+			if (err) {
+				response.json(err + "something went wrong")
+			};
 		});
 
-		response.json('success');
+		response.json(contact.firstname + "'s details stored");
 	});
 
 	//route to handle delete goes here (app.delete)

@@ -6,11 +6,15 @@
 	<title>Starter MEAN single page application</title>
 
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/toastr/toastr.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
 
+
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<script src="libs/toastr/toastr.js"></script>
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/controllers/ContactCtrl.js"></script>
 	<script src="js/services/ContactService.js"></script>
@@ -21,16 +25,6 @@
 <body data-ng-app="emailDbApp">
 
 	<div class="container">
-		<nav class="navbar navbar-inverse">
-			<div class="navbar-header">
-				<a href="/" class="navbar-brand">Email Database</a>
-			</div>
-
-			<ul class="nav navbar-nav">
-				<li><a href="/contacts">Contacts</a></li>
-			</ul>
-		</nav>
-
 		<div data-ng-view></div>
 	</div>
 	
