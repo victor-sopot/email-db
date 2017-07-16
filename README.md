@@ -17,10 +17,11 @@ This project aimed to be the first internal tool that we'd develop. I say _we_ b
 
 You may need to install git, node, npm and bower.
 
-Clone the project then run 
+Clone the project then install project dependencies (you'll need npm and bower installed):
 
-```npm install```
-and 
-```bower install``` 
-then 
-```node server.js``` to get a local server started.
+```npm install && bower install```
+
+
+And start a local server to run the project with (you'll need NodeJS installed):
+
+```node server.js```
