@@ -11,7 +11,7 @@
 		</thead>
 		<tbody>
 			<tr data-ng-repeat="contact in contacts">
-				<td>{{ contact.firstname }}</td>
+				<td>{{ contact.firstname | json }}</td>
 				<td>{{ contact.lastname }}</td>
 				<td>{{ contact.email }}</td>
 				<td>{{ contact.notes }}</td>

@@ -4,13 +4,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Con
 	$scope.contacts = {};
 
 	Contacts.get()
-		.success(function(data) {
-			$scope.contacts = data;
+		.then(function successCallback(response) {
+			$scope.contacts = response;
 			toastr["success"]('Contacts loaded from DB.');
-		})
-		.error(function(error) {
-			console.log(error);
-			toastr["error"]('Contacts couldnt be loaded from DB.');
+		}, function errorCallback(response) {
+			console.log(response);
+			toastr["error"]('Contacts couldnt be loaded from DB. Check console for error info');
 		});
 
 })

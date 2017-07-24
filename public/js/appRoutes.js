@@ -14,7 +14,8 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		})
 
 		.when('/browse', {
-			templateUrl: 'views/browse.html'
+			templateUrl: 'views/browse.html',
+			controller: 'MainController'
 		})
 
 		.when('/add', {

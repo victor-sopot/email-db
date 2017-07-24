@@ -1,5 +1,7 @@
-angular.module('ContactCtrl', []).controller('ContactController', function($scope, Contacts) {
+angular.module('ContactCtrl', []).controller('ContactController', function($scope, Contacts, $location) {
 	
+	let controller = this;
+
 	toastr.options = {
 		"closeButton": false,
 		"debug": false,
@@ -18,31 +20,36 @@ angular.module('ContactCtrl', []).controller('ContactController', function($scop
 		"hideMethod": "fadeOut"
 	}
 
-	$scope.contacts = {};
 	$scope.newContact = {};
+
 	Contacts.get()
-	.success(function(data) {
-		$scope.contacts = data;
-	})
-	.error(function(error) {
-		console.log(error);
+	.then(function successCallback(response) {
+		$scope.contacts = response;
+	}, function errorCallback(response) {
+		console.log(response)
 		toastr["error"]('Contacts couldnt be loaded from DB.');
 	});
+
+	$scope.newContact = {};
 
 	$scope.storeContact = function(isValid) {
 		if(isValid) {
 			Contacts.create($scope.newContact)
-				.success(function(data) {
+				.then(function successCallback(response) {
 					Contacts.get()
-						.success(function(getData) {
-							toastr["success"](data);
-							$scope.contacts = getData;
+						.then(function successCallback(newData) {
+							toastr["success"](newData);
+							$scope.contacts = newData;
+		                    $location.path('/home');
+						}, function errorCallback(response) {
+							console.log(response)
+							toastr["error"]('New contacts couldnt be loaded from DB.');
 						});
-				})
-				.error(function(data) {
-					toastr["error"](data);
+				}, function errorCallback(response) {
+					console.log(response)
+					toastr["error"]('There was an error storing the new contact.');
 				});
-		}
+		};
 	};
 })
 
